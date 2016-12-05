@@ -32,8 +32,8 @@
 	var curr_date = d.getDate()-1;
 	var curr_month = d.getMonth()+1;
 	var curr_year = d.getFullYear();
-	if(curr_date<10){curr_date='0'+curr_date}
-	if(curr_month<10){curr_month='0'+curr_month}
+	if(curr_date<10){curr_date='0'+curr_date};
+	if(curr_month<10){curr_month='0'+curr_month};
 	var time = (curr_year + "-" + curr_month + "-" + curr_date);
 
 	L.tileLayer('https://map1a.vis.earthdata.nasa.gov/wmts-webmerc/MODIS_Terra_CorrectedReflectance_TrueColor/default/' + time + '/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg', {
