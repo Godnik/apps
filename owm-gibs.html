@@ -58,14 +58,14 @@
 		id: 'owm'
 	});
 
-	var Snow = L.tileLayer('http://{s}.maps.owm.io:8099/5837ee50f77ebe01008ef68d/{z}/{x}/{y}?hash=21d287b716923b9702c510cc84f0487a', {
+	var Pressure = L.tileLayer('http://{s}.maps.owm.io:8099/5837ee50f77ebe01008ef68d/{z}/{x}/{y}?hash=21d287b716923b9702c510cc84f0487a', {
 		maxZoom: 18,
 		attribution: "Openweathermap VANE",
 		id: 'owm'
 	});
 
 
-	var overlayMaps = {"Temperature": Temp, "Rain": Rain, "Snow": Snow};
+	var overlayMaps = {"Temperature": Temp, "Rain": Rain, "Pressure": Pressure};
 
 	L.control.layers(overlayMaps, null, {collapsed:false}).addTo(mymap);
 
