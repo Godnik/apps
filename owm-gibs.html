@@ -2,7 +2,7 @@
 <html>
 <head>
 	
-	<title>Test Nasa</title>
+	<title>OWM GIBS</title>
 
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,25 +49,29 @@
 	var Temp = L.tileLayer('http://{s}.maps.owm.io:8099/5735d67f5836286b007625cd/{z}/{x}/{y}?hash=e25f0f2ec89ce18affb3678f26fe7bd1', {
 		maxZoom: 18,
 		attribution: "Openweathermap VANE",
-		id: 'owm'
-	});
+		id: 'owm'}),
 
-	var Rain = L.tileLayer('http://{s}.maps.owm.io:8099/57456d1237fb4e01009cbb17/{z}/{x}/{y}?hash=ccf800c5ec82f293260c9d048702dc5f', {
+		Rain = L.tileLayer('http://{s}.maps.owm.io:8099/57456d1237fb4e01009cbb17/{z}/{x}/{y}?hash=ccf800c5ec82f293260c9d048702dc5f', {
 		maxZoom: 18,
 		attribution: "Openweathermap VANE",
-		id: 'owm'
-	});
+		id: 'owm'}),
 
-	var Pressure = L.tileLayer('http://{s}.maps.owm.io:8099/5837ee50f77ebe01008ef68d/{z}/{x}/{y}?hash=21d287b716923b9702c510cc84f0487a', {
+		Pressure = L.tileLayer('http://{s}.maps.owm.io:8099/5837ee50f77ebe01008ef68d/{z}/{x}/{y}?hash=21d287b716923b9702c510cc84f0487a', {
 		maxZoom: 18,
 		attribution: "Openweathermap VANE",
-		id: 'owm'
-	});
+		id: 'owm'}),
 
 
-	var overlayMaps = {"Temperature": Temp, "Rain": Rain, "Pressure": Pressure};
+		Wind = L.tileLayer('http://{s}.maps.owm.io:8099/5735d67f5836286b0076267b/{z}/{x}/{y}?hash=e529bed414220dfa2559b17e3f5ca831', {
+		maxZoom: 18,
+		attribution: "Openweathermap VANE",
+		id: 'owm'});
 
-	L.control.layers(overlayMaps, null, {collapsed:false}).addTo(mymap);
+
+
+	var overlays = {"Temperature": Temp, "Rain": Rain, "Pressure": Pressure, "Wind": Wind};
+
+	L.control.layers(overlays, null, {collapsed:false}).addTo(mymap);
 
 </script>
 
