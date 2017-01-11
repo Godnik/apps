@@ -51,7 +51,7 @@
 		attribution: "Openweathermap VANE",
 		id: 'owm'}),
 
-		Rain = L.tileLayer('http://{s}.maps.owm.io:8099/57456d1237fb4e01009cbb17/{z}/{x}/{y}?hash=ccf800c5ec82f293260c9d048702dc5f', {
+		Precip = L.tileLayer('http://{s}.maps.owm.io:8099/57456d1237fb4e01009cbb17/{z}/{x}/{y}?hash=042a4b4c8ec6bc8392aabf46fa91003c', {
 		maxZoom: 18,
 		attribution: "Openweathermap VANE",
 		id: 'owm'}),
@@ -67,9 +67,15 @@
 		attribution: "Openweathermap VANE",
 		id: 'owm'});
 
+		
+		/*Clouds = L.tileLayer('http://{s}.maps.owm.io:8099/5876232c24cec8000135aaaf/{z}/{x}/{y}?hash=042a4b4c8ec6bc8392aabf46fa91003c', {
+		maxZoom: 18,
+		attribution: "Openweathermap VANE",
+		id: 'owm'});*/
 
 
-	var overlays = {"Temperature": Temp, "Rain": Rain, "Pressure": Pressure, "Wind": Wind};
+
+	var overlays = {"Temperature": Temp, "Precipitation": Precip, "Pressure": Pressure, "Wind": Wind, "Clouds": Clouds};
 
 	L.control.layers(overlays, null, {collapsed:false}).addTo(mymap);
 
