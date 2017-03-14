@@ -3,9 +3,9 @@
 <head>
     <meta charset=utf-8 />
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui' />
-    <title>Leaflet Side-by-side</title>
+    <title>OWM VANE - NASA GIBS MODIS Comparison</title>
     <script src='http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet-src.js'></script>
-    <script src="http://lab.digital-democracy.org/leaflet-side-by-side/leaflet-side-by-side.js"></script>
+    <script src="leaflet-side-by-side.js"></script>
     <link href='http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css' rel='stylesheet' />
     <style>
     body {
@@ -18,18 +18,30 @@
         bottom: 0;
         width: 100%;
     }
+    .left_lable{
+
+
+    }
+    .right_lable{
+
+        
+    }
     </style>
 </head>
 
 <body>
-    <div id='map'></div>
+
+    <div id='map'>
+        <div class="left_lable"> VANE OWM</div> 
+        <div class="right_lable"> GIBS NASA</div>
+    </div>
 
     <script>
     var map = L.map('map').setView([0.0, -0.09], 3);
 
        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-    var vane_modis = L.tileLayer('http://gdc05.owm.io:8111/terra/{z}/{x}/{y}').addTo(map);
+    var vane_modis = L.tileLayer('http://gdc05.owm.io:8111/terra/{z}/{x}/{y}', {attribution: "VANE, Openweathermap"}).addTo(map);
     
     var d = new Date();
     var curr_date = d.getDate();
