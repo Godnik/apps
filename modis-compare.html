@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8 />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui' />
+    <title>Leaflet Side-by-side</title>
+    <script src='http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet-src.js'></script>
+    <script src="http://lab.digital-democracy.org/leaflet-side-by-side/leaflet-side-by-side.js"></script>
+    <link href='http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css' rel='stylesheet' />
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+    </style>
+</head>
+
+<body>
+    <div id='map'></div>
+
+    <script>
+    var map = L.map('map').setView([0.0, -0.09], 3);
+
+       L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+    var vane_modis = L.tileLayer('http://gdc05.owm.io:8111/terra/{z}/{x}/{y}').addTo(map);
+    
+    var d = new Date();
+    var curr_date = d.getDate();
+    var curr_month = d.getMonth()+1;
+    var curr_year = d.getFullYear();
+    if(curr_date<10){curr_date='0'+curr_date};
+    if(curr_month<10){curr_month='0'+curr_month};
+    var time = (curr_year + "-" + curr_month + "-" + curr_date);
+
+    var gibs_modis = L.tileLayer('https://map1a.vis.earthdata.nasa.gov/wmts-webmerc/MODIS_Terra_CorrectedReflectance_TrueColor/default/' + time + '/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpg', {
+        maxZoom: 18,
+        id: 'sattelite',
+        attribution: "NASA"
+    }).addTo(map);
+
+ 
+
+    L.control.sideBySide(vane_modis, gibs_modis).addTo(map);
+    </script>
+</body>
+</html>
